@@ -10,9 +10,9 @@ pip3 install ansible --upgrade --user
 # install AWS CLI
 pip3 install awscli --upgrade --user
 # update PATH
-echo export "PATH=~/.local/bin:\$PATH"  >> ~/.bashrc
+echo "export PATH=~/.local/bin:\$PATH"  >> ~/.bashrc
 source ~/.bashrc
 # download content.zip
 aws s3 cp s3://ansible-sourceo-bucket/content.zip ~/content.zip
 # change root prompt
-echo export "PS1='\[\e[1;31m\][\u@amazon-linux \W]\$\[\e[0m\] '" >> ~/.bashrc
+echo "export PS1='\[\e[1;31m\][\u@amazon-linux \W]\$\[\e[0m\] '" >> ~/.bashrc
