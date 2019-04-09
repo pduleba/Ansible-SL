@@ -9,12 +9,12 @@ yum install -y python36u python36u-pip
 ln -sfn /bin/python3.6 /usr/sbin/python3
 ln -sfn /bin/pip3.6 /usr/sbin/pip3
 # install Ansible
-pip3 install ansible --upgrade --user
+pip3 install ansible --upgrade
 # install AWS CLI
-pip3 install awscli --upgrade --user
-# update PATH
-echo "export PATH=~/.local/bin:\$PATH"  >> ~/.bashrc
-source ~/.bashrc
+pip3 install awscli --upgrade
+# Enable Command Completion
+echo "complete -C '/usr/bin/aws_completer' aws" >> ~/.bashrc
+echo "complete -C '/usr/bin/aws_completer' aws" >> /home/ec2-user/.bashrc
 # download content.zip
 aws s3 cp s3://ansible-sourceo-bucket/content.zip ~/content.zip
 # change root prompt

@@ -6,11 +6,14 @@ yum update -y
 yum install -y python2 python2-pip
 yum install -y python3 python3-pip
 # install Ansible
-pip3 install ansible --upgrade --user
+pip3 install ansible --upgrade
 # install AWS CLI
-pip3 install awscli --upgrade --user
-# update PATH
-echo "export PATH=~/.local/bin:\$PATH"  >> ~/.bashrc
+pip3 install awscli --upgrade
+# Enable Command Completion
+echo "complete -C '/usr/local/bin/aws_completer' aws" >> ~/.bashrc
+echo "complete -C '/usr/local/bin/aws_completer' aws" >> /home/ec2-user/.bashrc
+# update PATH (for root)
+echo "export PATH=/usr/local/bin:\$PATH"  >> ~/.bashrc
 source ~/.bashrc
 # download content.zip
 aws s3 cp s3://ansible-sourceo-bucket/content.zip ~/content.zip
