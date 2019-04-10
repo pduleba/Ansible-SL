@@ -18,4 +18,5 @@ source ~/.bashrc
 # download content.zip
 aws s3 cp s3://ansible-sourceo-bucket/content.zip ~/content.zip
 # change root prompt
-echo "export PS1='\[\e[1;31m\][\u@amazon-linux \W]\$\[\e[0m\] '" >> ~/.bashrc
+echo "export PS1='\[\e[1;31m\]\u@\h:\W\$\[\e[0m\] '" >> ~/.bashrc
+echo "export PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\W\[\e[0m\]$\[\e[0m\] '" >> /home/ec2-user/.bashrc
