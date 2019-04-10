@@ -5,6 +5,7 @@ yum update -y
 # install Python2 + Python3
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+yum install -y python2-pip
 yum install -y python36u python36u-pip
 ln -sfn /bin/python3.6 /usr/sbin/python3
 ln -sfn /bin/pip3.6 /usr/sbin/pip3
