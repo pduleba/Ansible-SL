@@ -30,5 +30,8 @@ There are two execution types:
 * `local` - used when remote system can't execute python package
 * * CLIENT :: call via HTTP API (i.e. for webservice API calls)
 
+### Overview
+![Result](overview.PNG?raw=true "overview")
+
 ### Help
 * [Ansible Documentation](https://docs.ansible.com/)
