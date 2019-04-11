@@ -1,4 +1,4 @@
-# Exercise 03
+# Exercise 03 - Variables and Inheritance
 
 ### Order of precedence
 * `group_vars` all
