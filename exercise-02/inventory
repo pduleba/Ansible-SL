@@ -1,6 +1,6 @@
 #name/ip ansible_parameters
 amazon ansible_ssh_host=34.245.64.12
-redhat ansible_ssh_host=52.16.148.49 ansible_python_interpreter=/usr/sbin/python3       # override `python_interpreter` variable
+redhat ansible_ssh_host=52.16.148.49 ansible_python_interpreter=/usr/sbin/python3       # override `python_interpreter` variable as 2.7.10 supports Python 3
 ubuntu ansible_ssh_host=34.250.25.10 ansible_ssh_user=ubuntu                            # override `ssh_user` variable
 
 [servers]
