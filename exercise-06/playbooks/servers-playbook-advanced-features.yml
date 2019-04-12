@@ -1,0 +1,44 @@
+---
+- hosts: servers
+#  become: sudo
+  sudo: yes
+  vars:
+    http_port: 80                                                               # variables
+    doc_dir: /ansible/
+    doc_root: /var/www/html/ansible/
+    max_clients: 5
+
+  vars_prompt:
+    - name: username
+      prompt: What is your user name?                                           # prompt for value during `play` execution
+
+  tasks:
+    - name: Install Httpd2
+      yum: name=httpd state=present                                             # `yum` module
+      when: ansible_os_family == "RedHat"                                       # run if
+
+    - name: Install Apache2
+      apt: name=apache2 state=present                                           # `apt` module
+      when: ansible_os_family == "Debian"                                       # run if
+
+    - name: Start Http2
+      service: name=httpd enabled=yes state=started                             # `service` module
+      when: ansible_os_family == "RedHat"                                       # run if
+
+    - name: Start Apache2
+      service: name=apache2 enabled=yes state=started                           # `service` module
+      when: ansible_os_family == "Debian"                                       # run if
+
+    - name: Create directory
+      file: path={{ doc_root }} state=directory mode=0755
+      when: ansible_os_family == "RedHat"                                       # run if
+
+    - name: Deploy index.html
+      template: src=./templates/index.j2 dest={{ doc_root }}/index.html         # Jinja2 Template usage + variable
+      when: ansible_os_family == "RedHat"                                       # run if
+      notify:
+        - RestartApacheRedHatHandler
+
+  handlers:
+    - name: RestartApacheRedHatHandler                                          # handler executed if task is in state `changed` ONLY
+      service: name=httpd state=restarted
