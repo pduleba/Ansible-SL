@@ -1,7 +1,7 @@
 #name/ip ansible_parameters
 amazon ansible_ssh_host=34.243.112.171
-amazon ansible_ssh_host=34.246.124.121 ansible_python_interpreter=/usr/sbin/python3       # override `python_interpreter` variable
-amazon ansible_ssh_host=34.246.190.197 ansible_ssh_user=ubuntu                            # override `ssh_user` variable
+redhat ansible_ssh_host=34.246.124.121 ansible_python_interpreter=/usr/sbin/python3       # override `python_interpreter` variable
+ubuntu ansible_ssh_host=34.246.190.197 ansible_ssh_user=ubuntu                            # override `ssh_user` variable
 
 [amazon-servers]
 amazon
