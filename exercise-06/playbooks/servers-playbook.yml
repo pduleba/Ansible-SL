@@ -1,0 +1,34 @@
+---
+# `amazon` group play
+- hosts: amazon
+  become: sudo
+
+  tasks: #
+    - name: Install Apache
+      yum: name=httpd state=present                             # `yum` module
+
+    - name: Start Apache
+      service: name=httpd enabled=yes state=started             # `service` module
+
+# `amazon` group play
+- hosts: redhat
+  become: sudo
+
+  tasks:
+    - name: Install Apache
+      yum: name=httpd state=present                             # `yum` module
+
+    - name: Start Apache
+      service: name=httpd enabled=yes state=started             # `service` module
+
+# `amazon` group play
+- hosts: ubuntu
+  become: sudo
+
+  tasks:
+    - name: Install Apache
+      apt: name=apache2 state=present                           # `apt` module
+
+    - name: Start Apache
+      service: name=apache2 enabled=yes state=started           # `service` module
+
