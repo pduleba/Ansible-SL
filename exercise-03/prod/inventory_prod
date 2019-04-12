@@ -17,7 +17,7 @@ amazon-servers
 redhat-servers
 ubuntu-servers
 
-# variables for group `dbs`
+# variables for group `servers`
 [servers:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_user=ec2-user
