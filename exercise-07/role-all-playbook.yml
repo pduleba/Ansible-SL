@@ -1,0 +1,17 @@
+---
+- hosts: amazon:redhat:ubuntu                                                   # amazon OR redhat
+  become: true
+  become_method: sudo
+  gather_facts: no
+  vars_prompt:
+    - name: confirm
+      prompt: Do you confirm deployment? [yes/no]                               # prompt for value during `play` execution
+  pre_tasks:
+    - fail:
+        msg: No deployment this time
+      when: confirm != 'yes'
+  roles:
+    - common                                                                    # Role pointer !!!
+
+- import_playbook: role-yum-playbook.yml
+- import_playbook: role-apt-playbook.yml

@@ -1,0 +1,14 @@
+---
+- name: Install Httpd2
+  yum: name=httpd state=present                                             # `yum` module
+
+- name: Start Http2
+  service: name=httpd enabled=yes state=started                             # `service` module
+
+- name: Create directory
+  file: path={{ doc_root }} state=directory mode=0755
+
+- name: Deploy index.html
+  template: src=index.j2 dest={{ doc_root }}/index.html                     # Jinja2 Template usage + variable
+  notify:
+    - RestartApacheRedHatHandler

@@ -1,0 +1,10 @@
+---
+- hosts: amazon:redhat                                                          # amazon OR redhat
+  become: true
+  become_method: sudo
+  gather_facts: no
+  vars_prompt:
+    - name: username
+      prompt: What is your user name?                                           # prompt for value during `play` execution
+  roles:
+    - yum                                                                       # Role pointer !!!

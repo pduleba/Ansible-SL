@@ -1,0 +1,3 @@
+---
+- name: RestartApacheRedHatHandler                                          # handler executed if task is in state `changed` ONLY
+  service: name=httpd state=restarted

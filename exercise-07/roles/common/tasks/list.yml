@@ -1,0 +1,5 @@
+---
+- name: Show OS release
+  command: "grep -i PRETTY_NAME /etc/os-release"
+  register: os_version
+- debug: var=os_version.stdout_lines

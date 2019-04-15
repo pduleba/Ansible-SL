@@ -1,0 +1,22 @@
+#name/ip ansible_parameters
+amazon ansible_ssh_host=63.33.43.216
+redhat ansible_ssh_host=18.202.251.247
+ubuntu ansible_ssh_host=34.240.187.195 ansible_ssh_user=ubuntu                            # override `ssh_user` variable
+
+[amazon-servers]
+amazon
+
+[redhat-servers]
+redhat
+
+[ubuntu-servers]
+ubuntu
+
+[servers:children]
+amazon-servers
+redhat-servers
+ubuntu-servers
+
+# variables for group `servers`
+[servers:vars]
+ansible_ssh_user=ec2-user
