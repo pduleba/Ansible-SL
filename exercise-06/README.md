@@ -1,4 +1,4 @@
-# Exercise 05 - Playbook
+# Exercise 06 - Playbook
 
 ### Idea
 * `Playbook` contains plays
